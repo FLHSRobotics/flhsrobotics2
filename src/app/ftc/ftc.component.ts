@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-ftc',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FtcComponent implements OnInit {
 
-  constructor() { }
+  teamId:Number;
+
+  constructor(
+    private route:ActivatedRoute
+  ) { }
 
   ngOnInit() {
+    this.teamId = this.route.snapshot.params['teamNum'];
   }
 
 }
