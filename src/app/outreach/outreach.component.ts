@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {outreach} from "../data/outreach";
 
 @Component({
   selector: 'app-outreach',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OutreachComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+  ) { }
+
+  outreachArr: any;
 
   ngOnInit() {
+    this.outreachArr = outreach;
+    console.log(outreach)
   }
 
 }
