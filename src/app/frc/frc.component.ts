@@ -16,7 +16,5 @@ export class FrcComponent implements OnInit {
 
   ngOnInit() {
     this.teamId = this.route.snapshot.params['teamNum'];
-    console.log(this.teamId)
   }
-
 }
