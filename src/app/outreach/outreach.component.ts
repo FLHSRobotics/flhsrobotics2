@@ -15,7 +15,6 @@ export class OutreachComponent implements OnInit {
 
   ngOnInit() {
     this.outreachArr = outreach;
-    console.log(outreach)
   }
 
 }

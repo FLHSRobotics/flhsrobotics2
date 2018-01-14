@@ -8,7 +8,7 @@ import {ActivatedRoute} from "@angular/router";
 })
 export class FrcComponent implements OnInit {
 
-  teamId: number;
+  teamId:string;
 
   constructor(
     private route:ActivatedRoute

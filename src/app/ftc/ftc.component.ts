@@ -8,7 +8,7 @@ import {ActivatedRoute} from "@angular/router";
 })
 export class FtcComponent implements OnInit {
 
-  teamId:Number;
+  teamId:string;
 
   constructor(
     private route:ActivatedRoute
