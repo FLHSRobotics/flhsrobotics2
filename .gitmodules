@@ -1,4 +1,0 @@
-[submodule "docs/flhsrobotics.github.io"]
-	path = docs/flhsrobotics.github.io
-	url = https://github.com/FLHSRobotics/flhsrobotics.github.io
-	branch = master
