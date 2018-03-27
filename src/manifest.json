@@ -1,0 +1,20 @@
+{
+  "short_name": "FLHS Robotics",
+  "name": "Francis Lewis High School Robotics",
+  "start_url": "/",
+
+  "theme_color": "#01579b",
+  "background_color": "#ffffff",
+
+  "display": "standalone",
+  "orientation": "portrait",
+
+  "icons": [
+    {
+      "src": "/assets/icons/512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+
+}

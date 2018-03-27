@@ -13,6 +13,8 @@ import { SponsorsComponent } from './sponsors/sponsors.component';
 import { MediaComponent } from './media/media.component';
 import { ContactComponent } from './contact/contact.component';
 import { FooterComponent } from './partical/footer/footer.component';
+import {ServiceWorkerModule} from "@angular/service-worker";
+import {environment} from "../environments/environment";
 
 
 @NgModule({
@@ -30,7 +32,8 @@ import { FooterComponent } from './partical/footer/footer.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ServiceWorkerModule.register('/ngsw-worker.js', {enabled: environment.production})
   ],
   providers: [],
   bootstrap: [AppComponent]
