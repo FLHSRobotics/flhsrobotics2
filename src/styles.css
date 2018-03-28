@@ -3,6 +3,7 @@
 @import "~materialize-css/dist/css/materialize.min.css";
 body {
   display: flex;
+  position: relative;
   min-height: 100vh;
   flex-direction: column;
 }

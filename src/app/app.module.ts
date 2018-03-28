@@ -15,6 +15,7 @@ import { ContactComponent } from './contact/contact.component';
 import { FooterComponent } from './partical/footer/footer.component';
 import {ServiceWorkerModule} from "@angular/service-worker";
 import {environment} from "../environments/environment";
+import { NotFoundComponent } from './not-found/not-found.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import {environment} from "../environments/environment";
     SponsorsComponent,
     MediaComponent,
     ContactComponent,
-    FooterComponent
+    FooterComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
