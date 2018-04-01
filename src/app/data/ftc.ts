@@ -1,5 +1,35 @@
 export const ftc: Array<any> = [
   {
+    team:3006,
+    members:[
+      {
+        name: 'Arneal Satram',
+        role: 'Captain',
+        img: '/assets/img/teams/3006/asatram.png'
+      },
+      {
+        name: 'Alan Lem',
+        role: 'Manufacturer',
+        img: '/assets/img/teams/3006/alem.png'
+      },
+      {
+        name: 'Owen Zhong',
+        role: 'Programmer',
+        img: '/assets/img/teams/3006/ozhong.jpg'
+      },
+      {
+        name: 'Alex Seepersaud',
+        role: 'Programmer',
+        img: '/assets/img/teams/3006/aseepersaud.png'
+      },
+      {
+        name: 'Cyrus Mozaffari',
+        role: 'Manufacturer',
+        img: '/assets/img/teams/3006/cmozaffari.jpg'
+      }
+    ]
+  },
+  {
     team: 4783,
     members: [
       {
