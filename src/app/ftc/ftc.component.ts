@@ -14,9 +14,8 @@ export class FtcComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router
   ) { }
-
   ngOnInit() {
-    this.route.params.subscribe(data=>{
+    this.route.params.subscribe(data => {
       this.teamId = +data.teamNum;
       if (this.teamId !== 0) {
         const teamNum = +this.teamId;

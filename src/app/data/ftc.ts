@@ -1,7 +1,7 @@
 export const ftc: Array<any> = [
   {
-    team:3006,
-    members:[
+    team: 3006,
+    members: [
       {
         name: 'Arneal Satram',
         role: 'Captain',
