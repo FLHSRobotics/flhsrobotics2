@@ -1,4 +1,4 @@
-<div class="container" *ngIf="teamId === '0'">
+<div class="container" *ngIf="teamId === 0">
   <div class="center-align">
     <h1 class="title">FIRST Tech Challenge</h1>
     <hr>
@@ -21,7 +21,7 @@
     <br>
   </div>
 </div>
-<div class="container" *ngIf="teamId !== '0'">
+<div class="container" *ngIf="teamId !== 0">
   <div class="row">
     <h3>Team {{teamId}}</h3>
   </div>
