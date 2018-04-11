@@ -73,5 +73,50 @@ export const ftc: Array<any> = [
         img: '/assets/img/teams/4783/jyan.jpg'
       }
     ]
+  },
+  {
+    team:4995,
+    members:[
+      {
+        name: 'KAMILLE TIPAN',
+        role: 'CAPTAIN AND  PROGRAMMER',
+        img: '/assets/img/teams/4995/ktipan.png'
+      },
+      {
+        name: 'AMIYA LAMISHA',
+        role: 'CO-CAPTAIN, P.R. AND MANUFACTURER',
+        img: '/assets/img/teams/4995/alamisha.png'
+      },
+      {
+        name: 'CHRISTINA CHENG',
+        role: 'MANUFACTURER',
+        img: '/assets/img/teams/4995/ccheng.jpg'
+      },
+      {
+        name: 'SENLIAN DONG',
+        role: 'PROGRAMMER AND BACKUP MANUFACTURER',
+        img: '/assets/img/teams/4995/sdong.png'
+      },
+      {
+        name: 'MICHELLE TU',
+        role: 'MANUFACTURER',
+        img: '/assets/img/teams/4995/mtu.png'
+      },
+      {
+        name: 'JULIA PARK',
+        role: 'MANUFACTURER',
+        img: '/assets/img/teams/4995/jpark.jpg'
+      },
+      {
+        name: 'SHIRLEY TOM',
+        role: 'MANUFACTURER',
+        img: '/assets/img/teams/4995/stom.png'
+      },
+      {
+        name: 'RUTH PEREZ',
+        role: 'PROGRAMMER',
+        img: '/assets/img/teams/4995/rperez.png'
+      }
+    ]
   }
 ];
