@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {HomeComponent} from './home/home.component';
 import {FrcComponent} from './frc/frc.component';
-import {FtcComponent} from './ftc/ftc.component';
 import {ContactComponent} from './contact/contact.component';
 import {MediaComponent} from './media/media.component';
 import {SponsorsComponent} from './sponsors/sponsors.component';
@@ -19,8 +18,8 @@ const routes: Routes = [
     component: FrcComponent,
   },
   {
-    path: 'ftc/:teamNum',
-    component: FtcComponent
+    path: 'ftc',
+    loadChildren:'app/controller/ftc/ftc.module#FtcModule'
   },
   {
     path: 'contact',
