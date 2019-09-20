@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {outreach} from "../data/outreach";
+import {outreach} from "../../data/outreach";
 
 @Component({
   selector: 'app-outreach',

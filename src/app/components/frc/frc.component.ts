@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-frc',
@@ -8,10 +8,10 @@ import {ActivatedRoute} from "@angular/router";
 })
 export class FrcComponent implements OnInit {
 
-  teamId:string;
+  teamId: string;
 
   constructor(
-    private route:ActivatedRoute
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit() {

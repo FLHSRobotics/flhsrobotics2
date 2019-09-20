@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
-import { ftc } from '../data/ftc';
+import { ftc } from '../../data/ftc';
 @Component({
   selector: 'app-ftc',
   templateUrl: './ftc.component.html',
@@ -17,10 +17,8 @@ export class FtcComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(data => {
       this.teamId = +data.teamNum;
-      if (this.teamId !== 0) {
         const teamNum = +this.teamId;
         this.teamMember = this.searchTeam(teamNum);
-      }
     });
   }
   searchTeam(teamId: number): Array<any> {

@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="row">
+    <h3>Team {{teamId}}</h3>
+  </div>
+  <div class="row">
+    <div class="col s12 m6" *ngFor="let member of teamMember">
+      <div class="row">
+        <div class="col">
+          <img [src]="member.img" class="pFrame" [alt]="member.name">
+        </div>
+        <div class="col">
+          <p class="name">{{member.name}}</p>
+          <p class="role">{{member.role}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
