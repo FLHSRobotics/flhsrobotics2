@@ -16,7 +16,6 @@ import { environment } from '../environments/environment';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import {AngularFireModule} from '@angular/fire';
 import {AngularFirestoreModule} from '@angular/fire/firestore';
-import {AngularFlamelinkModule} from 'angular-flamelink';
 import {AngularFireStorageModule} from '@angular/fire/storage';
 import {AngularFireAuthModule} from '@angular/fire/auth';
 
@@ -39,7 +38,6 @@ import {AngularFireAuthModule} from '@angular/fire/auth';
     ServiceWorkerModule.register('/ngsw-worker.js', {enabled: environment.production}),
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
-    AngularFlamelinkModule,
     AngularFireStorageModule,
     AngularFireAuthModule
   ],
