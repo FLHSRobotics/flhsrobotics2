@@ -6,9 +6,9 @@ import 'firebase/auth';
 import { FirebaseApp } from '@angular/fire';
 // @ts-ignore
 import flamelink from 'flamelink';
-import 'flamelink/rtdb/content';
-import 'flamelink/rtdb/navigation';
-import 'flamelink/rtdb/storage';
+import 'flamelink/content';
+import 'flamelink/storage';
+import 'flamelink/navigation';
 
 @Injectable({
   providedIn: 'root'
@@ -29,9 +29,9 @@ export class FlamelinkService {
   constructor(@Inject(FirebaseApp) private _fb: firebase.app.App) {
     this.flApp = flamelink({
       firebaseApp: this._fb,
-      env: 'production',
-      locale: 'en-US',
-      dbType: 'cf' // dbType should match the imports (rtdb or cf)
+      env: 'production', // optional, defaults to `production`
+      locale: 'en-US', // optional, defaults to `en-US`
+      dbType: 'cf' // optional, defaults to `rtdb` - can be 'rtdb' or 'cf' (Realtime DB vs Cloud Firestore
     });
   }
 

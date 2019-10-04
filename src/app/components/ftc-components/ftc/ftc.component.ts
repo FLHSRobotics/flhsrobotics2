@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute, Router} from '@angular/router';
+import {ActivatedRoute, Params, Router} from '@angular/router';
 import { ftc } from '../../../data/ftc';
 import {FlamelinkService} from '../../../services/flamelink.service';
 @Component({
@@ -9,6 +9,7 @@ import {FlamelinkService} from '../../../services/flamelink.service';
 })
 export class FtcComponent implements OnInit {
 
+  urlParams: Params;
   teamId: number;
   teamMember: Array<any>;
   constructor(
@@ -16,20 +17,16 @@ export class FtcComponent implements OnInit {
     private router: Router,
     private _fl: FlamelinkService
   ) { }
-  ngOnInit() {
-    this.route.params.subscribe(data => {
-      this.teamId = +data.teamNum;
-        const teamNum = +this.teamId;
-        this.teamMember = this.searchTeam(teamNum);
-    });
+  async ngOnInit() {
+    this.urlParams = await this.route.params.subscribe()
+    console.log(this.urlParams)
+    this._fl.getApp().content.getByField({
+      schemaKey: 'teams',
+      field: 'teamName',
+      value: this.teamId
+    })
+      .then(data => {
+        this.teamMember = data[Object.keys(data)[0]].teamMemberPhotos;
+      });
   }
-  searchTeam(teamId: number): Array<any> {
-    const obj = ftc.find(o => o.team === teamId);
-    if (!obj) {
-      this.router.navigate(['/404']);
-    }else {
-      return obj.members;
-    }
-  }
-
 }
