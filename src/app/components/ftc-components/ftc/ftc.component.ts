@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
-import { ftc } from '../../data/ftc';
+import { ftc } from '../../../data/ftc';
+import {FlamelinkService} from '../../../services/flamelink.service';
 @Component({
   selector: 'app-ftc',
   templateUrl: './ftc.component.html',
@@ -12,7 +13,8 @@ export class FtcComponent implements OnInit {
   teamMember: Array<any>;
   constructor(
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private _fl: FlamelinkService
   ) { }
   ngOnInit() {
     this.route.params.subscribe(data => {

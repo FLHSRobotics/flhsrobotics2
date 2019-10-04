@@ -1,7 +1,7 @@
 import { RouterModule, Routes} from '@angular/router';
-import {FtcComponent} from '../../components/ftc/ftc.component';
+import {FtcComponent} from '../../components/ftc-components/ftc/ftc.component';
 import {NgModule} from '@angular/core';
-import {FtcAboutComponent} from '../../components/ftc-about/ftc-about.component';
+import {FtcAboutComponent} from '../../components/ftc-components/ftc-about/ftc-about.component';
 
 const routes: Routes = [
   {

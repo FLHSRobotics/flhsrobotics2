@@ -1,8 +1,8 @@
 import { CommonModule } from '@angular/common';
 import {NgModule, CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import {FrcRoutingModule} from './frc-routing.module';
-import {FrcComponent} from '../../components/frc/frc.component';
-import {FrcAboutComponent} from '../../components/frc-about/frc-about.component';
+import {FrcComponent} from '../../components/frc-components/frc/frc.component';
+import {FrcAboutComponent} from '../../components/frc-components/frc-about/frc-about.component';
 @NgModule({
   imports: [
     CommonModule,
