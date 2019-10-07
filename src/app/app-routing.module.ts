@@ -1,12 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {HomeComponent} from './home/home.component';
-import {FrcComponent} from './frc/frc.component';
-import {ContactComponent} from './contact/contact.component';
-import {MediaComponent} from './media/media.component';
-import {SponsorsComponent} from './sponsors/sponsors.component';
-import {OutreachComponent} from './outreach/outreach.component';
-import {NotFoundComponent} from './not-found/not-found.component';
+import {HomeComponent} from './components/home/home.component';
+import {ContactComponent} from './components/contact/contact.component';
+import {MediaComponent} from './components/media/media.component';
+import {SponsorsComponent} from './components/sponsors/sponsors.component';
+import {OutreachComponent} from './components/outreach/outreach.component';
+import {NotFoundComponent} from './components/not-found/not-found.component';
 
 const routes: Routes = [
   {
@@ -14,12 +13,12 @@ const routes: Routes = [
     component: HomeComponent
   },
   {
-    path: 'frc/:teamNum',
-    component: FrcComponent,
+    path: 'frc',
+    loadChildren: () => import('app/controllers/frc/frc.module').then(m => m.FrcModule),
   },
   {
     path: 'ftc',
-    loadChildren:'app/controller/ftc/ftc.module#FtcModule'
+    loadChildren: () => import('app/controllers/ftc/ftc.module').then(m => m.FtcModule)
   },
   {
     path: 'contact',

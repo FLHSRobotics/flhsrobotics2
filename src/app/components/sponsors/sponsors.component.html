@@ -1,0 +1,15 @@
+<div class="container center-align">
+  <h1 class="title">Sponsors</h1>
+  <br>
+    <p>We would like to thank our valued sponsors for their support.</p>
+  <br>
+  <div *ngIf="isMediaLoaded">
+    <div class="img-box" *ngFor="let media of mediaLink">
+      <b>{{media.name}} for sponsoring {{media.team}}</b>
+      <br>
+      <img src="{{media.logo}}" alt="FRC SPONSORS">
+    </div>
+    <br>
+  </div>
+  <app-loader *ngIf="!isMediaLoaded"></app-loader>
+</div>

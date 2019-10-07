@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="row">
+    <h3>Team {{teamId}}</h3>
+  </div>
+  <!--Team Members-->
+  <div class="row" *ngIf="teamMember.length > 0 && isMemberLoaded">
+    <div class="col s12 m6" *ngFor="let member of teamMember">
+      <div class="row">
+        <div class="col">
+          <img [src]="member.image_url" class="pFrame" [alt]="member.name">
+        </div>
+        <div class="col">
+          <p class="name">{{member.name}}</p>
+          <p class="role">{{member.dutyDescription}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--No Team Member Photos-->
+  <div class="row" *ngIf="teamMember.length == 0 && isMemberLoaded">
+    <h4>Sorry, we don't have any team photos for {{teamId}}</h4>
+  </div>
+  <!--Loader-->
+  <app-loader *ngIf="!isMemberLoaded"></app-loader>
+</div>

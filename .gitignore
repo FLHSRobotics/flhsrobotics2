@@ -45,3 +45,6 @@ Thumbs.db
 *.iml
 *.ipr
 *.iws
+
+firebase-debug.log
+.firebase/
