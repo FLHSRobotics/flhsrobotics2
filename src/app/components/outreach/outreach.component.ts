@@ -18,12 +18,14 @@ export class OutreachComponent implements OnInit {
   async ngOnInit() {
     this.isContentLoaded = false;
     this.dbPromise = await this._fl.getApp().content.get({ schemaKey: 'outreach'});
+    console.log(this.dbPromise);
     // tslint:disable-next-line:forin
     for (const media in this.dbPromise) {
       this.outreachArr.push({
         img: await this._fl.getApp().storage.getURL({fileId: this.dbPromise[media].outreachPhoto[0].id}),
         outreachName: this.dbPromise[media].outreachName,
-        outreachDescription: this.dbPromise[media].outreachDescription
+        outreachDescription: this.dbPromise[media].outreachDescription,
+        date: this.dbPromise[media].date
       });
     }
     this.isContentLoaded = true;
