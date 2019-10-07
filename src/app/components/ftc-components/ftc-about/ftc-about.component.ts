@@ -16,7 +16,7 @@ export class FtcAboutComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this._fl.getApp().content.get({ schemaKey: 'sitewideSettings'})
+    this._fl.getApp().content.get({ schemaKey: 'sitewideSettings' })
       .then((data) => {
         this.embeddedPlayerLink = this.sanitizer.bypassSecurityTrustResourceUrl(data.ftcVideoLink);
       });
