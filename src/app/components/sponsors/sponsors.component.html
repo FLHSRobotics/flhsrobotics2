@@ -3,16 +3,13 @@
   <br>
     <p>We would like to thank our valued sponsors for their support.</p>
   <br>
-  <div class="img-box">
-    <b>FRC 3017 Sponsor</b>
+  <div *ngIf="isMediaLoaded">
+    <div class="img-box" *ngFor="let media of mediaLink">
+      <b>{{media.name}} for {{media.team}}</b>
+      <br>
+      <img src="{{media.logo}}" alt="FRC SPONSORS">
+    </div>
     <br>
-    <img src="/assets/img/sponsors/frc-sponsors.webp" alt="FRC SPONSORS">
   </div>
-  <br>
-  <div class="img-box">
-    <b>Food Sponsor</b>
-    <br>
-    <img src="/assets/img/sponsors/food-sponsors.png" alt="FOOD SPONSORS">
-  </div>
-  <br>
+  <app-loader *ngIf="!isMediaLoaded"></app-loader>
 </div>

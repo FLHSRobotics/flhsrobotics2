@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {FlamelinkService} from '../../services/flamelink.service';
 declare var jQuery: any;
 @Component({
   selector: 'app-media',
@@ -7,9 +8,21 @@ declare var jQuery: any;
 })
 export class MediaComponent implements OnInit {
 
-  constructor() { }
+  dbPromise: Promise<any>;
+  mediaLink = [];
+  isMediaLoaded = false;
+  constructor(
+    private _fl: FlamelinkService
+  ) { }
 
-  ngOnInit() {
+  async ngOnInit() {
+    this.isMediaLoaded = false;
+    this.dbPromise = await this._fl.getApp().content.get({ schemaKey: 'media'});
+    // tslint:disable-next-line:forin
+    for (const media in this.dbPromise) {
+      this.mediaLink.push(await this._fl.getApp().storage.getURL({fileId: this.dbPromise[media].media[0].id}));
+    }
+    this.isMediaLoaded = true;
     jQuery('.carousel.carousel-slider').carousel({fullWidth: true});
   }
 

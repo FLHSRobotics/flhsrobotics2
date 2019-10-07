@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {DomSanitizer, SafeUrl} from '@angular/platform-browser';
+import {FlamelinkService} from '../../../services/flamelink.service';
 
 @Component({
   selector: 'app-ftc-about',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FtcAboutComponent implements OnInit {
 
-  constructor() { }
+  embeddedPlayerLink: SafeUrl;
+  constructor(
+    private _fl: FlamelinkService,
+    private sanitizer: DomSanitizer
+  ) { }
 
   ngOnInit() {
+    this._fl.getApp().content.get({ schemaKey: 'sitewideSettings'})
+      .then((data) => {
+        this.embeddedPlayerLink = this.sanitizer.bypassSecurityTrustResourceUrl(data.ftcVideoLink);
+      });
   }
-
 }

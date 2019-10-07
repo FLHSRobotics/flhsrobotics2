@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {outreach} from "../../data/outreach";
+import {FlamelinkService} from '../../services/flamelink.service';
 
 @Component({
   selector: 'app-outreach',
@@ -9,12 +9,24 @@ import {outreach} from "../../data/outreach";
 export class OutreachComponent implements OnInit {
 
   constructor(
+    private _fl: FlamelinkService
   ) { }
 
-  outreachArr: any;
-
-  ngOnInit() {
-    this.outreachArr = outreach;
+  outreachArr = [];
+  dbPromise: Promise<any>;
+  isContentLoaded: boolean;
+  async ngOnInit() {
+    this.isContentLoaded = false;
+    this.dbPromise = await this._fl.getApp().content.get({ schemaKey: 'outreach'});
+    // tslint:disable-next-line:forin
+    for (const media in this.dbPromise) {
+      this.outreachArr.push({
+        img: await this._fl.getApp().storage.getURL({fileId: this.dbPromise[media].outreachPhoto[0].id}),
+        outreachName: this.dbPromise[media].outreachName,
+        outreachDescription: this.dbPromise[media].outreachDescription
+      });
+    }
+    this.isContentLoaded = true;
   }
 
 }

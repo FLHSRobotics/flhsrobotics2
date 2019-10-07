@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {FlamelinkService} from '../../services/flamelink.service';
 
 @Component({
   selector: 'app-sponsors',
@@ -7,9 +8,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SponsorsComponent implements OnInit {
 
-  constructor() { }
+  dbPromise: Promise<any>;
+  mediaLink = [];
+  isMediaLoaded = false;
+  constructor(
+    private _fl: FlamelinkService
+  ) { }
 
-  ngOnInit() {
+  async ngOnInit() {
+    this.isMediaLoaded = false;
+    this.dbPromise = await this._fl.getApp().content.get({ schemaKey: 'sponsors'});
+    // tslint:disable-next-line:forin
+    for (const media in this.dbPromise) {
+      this.mediaLink.push({
+          logo: await this._fl.getApp().storage.getURL({fileId: this.dbPromise[media].sponsorLogo[0].id}),
+          name: this.dbPromise[media].sponsorName,
+          team: this.dbPromise[media].sponsoredTeam
+        });
+      }
+    this.isMediaLoaded = true;
   }
-
 }

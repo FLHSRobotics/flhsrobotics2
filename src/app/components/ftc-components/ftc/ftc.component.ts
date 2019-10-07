@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute, Params, Router} from '@angular/router';
-import { ftc } from '../../../data/ftc';
+import {ActivatedRoute, Router} from '@angular/router';
 import {FlamelinkService} from '../../../services/flamelink.service';
 @Component({
   selector: 'app-ftc',
@@ -9,24 +8,34 @@ import {FlamelinkService} from '../../../services/flamelink.service';
 })
 export class FtcComponent implements OnInit {
 
-  urlParams: Params;
-  teamId: number;
-  teamMember: Array<any>;
+  teamId: string;
+  dbPromise: Promise<any>;
+  teamMember = [];
+  isMemberLoaded = false;
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     private _fl: FlamelinkService
   ) { }
-  async ngOnInit() {
-    this.urlParams = await this.route.params.subscribe()
-    console.log(this.urlParams)
-    this._fl.getApp().content.getByField({
-      schemaKey: 'teams',
-      field: 'teamName',
-      value: this.teamId
-    })
-      .then(data => {
-        this.teamMember = data[Object.keys(data)[0]].teamMemberPhotos;
+
+  private loadMembers = () => {
+    this.route.params.subscribe(async params => {
+      this.isMemberLoaded = false;
+      this.teamId = params['teamNum'];
+      this.dbPromise = await this._fl.getApp().content.getByField({
+        schemaKey: 'teams',
+        field: 'teamName',
+        value: this.teamId
       });
+      for (const e of this.dbPromise[Object.keys(this.dbPromise)[0]].teamMemberPhotos) {
+        e['image_url'] = await this._fl.getApp().storage.getURL({ fileId: e.image[0].id });
+      }
+      this.teamMember = this.dbPromise[Object.keys(this.dbPromise)[0]].teamMemberPhotos;
+      this.isMemberLoaded = true;
+    });
+  }
+
+  async ngOnInit() {
+    this.loadMembers();
   }
 }

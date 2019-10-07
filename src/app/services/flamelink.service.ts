@@ -5,7 +5,7 @@ import 'firebase/storage';
 import 'firebase/auth';
 import { FirebaseApp } from '@angular/fire';
 // @ts-ignore
-import flamelink from 'flamelink';
+import flamelink from 'flamelink/app';
 import 'flamelink/content';
 import 'flamelink/storage';
 import 'flamelink/navigation';

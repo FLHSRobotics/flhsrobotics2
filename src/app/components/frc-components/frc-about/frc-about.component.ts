@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {FlamelinkService} from '../../../services/flamelink.service';
+import {DomSanitizer, SafeUrl} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-frc-about',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FrcAboutComponent implements OnInit {
 
-  constructor() { }
+  embeddedPlayerLink: SafeUrl;
+  constructor(
+    private _fl: FlamelinkService,
+    private sanitizer: DomSanitizer
+  ) { }
 
   ngOnInit() {
+    this._fl.getApp().content.get({ schemaKey: 'sitewideSettings'})
+      .then((data) => {
+        this.embeddedPlayerLink = this.sanitizer.bypassSecurityTrustResourceUrl(data.frcVideoLink);
+      });
   }
 
 }
