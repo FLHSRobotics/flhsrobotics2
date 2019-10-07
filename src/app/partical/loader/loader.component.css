@@ -1,7 +1,8 @@
 .loader{
-  width: 100%;
-  margin: 0 auto ;
+  width: 20vw;
+  margin: 0 auto 20px;
+  padding: 25px;
+  text-align: center;
 }
 .preloader-wrapper{
-  margin: 0 auto;
 }

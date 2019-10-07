@@ -28,6 +28,9 @@ export class FrcComponent implements OnInit {
         field: 'teamName',
         value: this.teamId
       });
+      if (this.dbPromise == null) {
+        await this.router.navigate(['/404']);
+      }
       for (const e of this.dbPromise[Object.keys(this.dbPromise)[0]].teamMemberPhotos) {
         e['image_url'] = await this._fl.getApp().storage.getURL({ fileId: e.image[0].id });
       }

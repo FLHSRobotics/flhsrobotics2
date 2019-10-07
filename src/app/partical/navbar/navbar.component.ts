@@ -12,12 +12,12 @@ export class NavbarComponent implements OnInit {
 
 
   ngOnInit() {
-    jQuery('.button-collapse').sideNav({
+    jQuery('.sidenav').sidenav({
       menuWidth:  300, // Default is 300
       edge:  'left', // Choose the horizontal origin
       draggable:  true, // Choose whether you can drag to open on touch screens,
-    }
-  );
+    });
+    jQuery('.dropdown-trigger').dropdown();
   }
 
 }
