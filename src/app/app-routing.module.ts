@@ -14,11 +14,11 @@ const routes: Routes = [
   },
   {
     path: 'frc',
-    loadChildren: () => import('app/controllers/frc/frc.module').then(m => m.FrcModule),
+    loadChildren: () => import('./controllers/frc/frc.module').then(m => m.FrcModule),
   },
   {
     path: 'ftc',
-    loadChildren: () => import('app/controllers/ftc/ftc.module').then(m => m.FtcModule)
+    loadChildren: () => import('./controllers/ftc/ftc.module').then(m => m.FtcModule)
   },
   {
     path: 'contact',

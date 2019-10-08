@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FlamelinkService} from '../../services/flamelink.service';
+import {MetaService} from '../../services/meta.service';
 
 @Component({
   selector: 'app-sponsors',
@@ -12,10 +13,13 @@ export class SponsorsComponent implements OnInit {
   mediaLink = [];
   isMediaLoaded = false;
   constructor(
-    private _fl: FlamelinkService
+    private _fl: FlamelinkService,
+    private metaService: MetaService
   ) { }
 
   async ngOnInit() {
+    this.metaService.updateMeta('Sponsors - Francis Lewis Robotics',
+      'We would like to thank our valued sponsors for their support.');
     this.isMediaLoaded = false;
     this.dbPromise = await this._fl.getApp().content.get({ schemaKey: 'sponsors'});
     // tslint:disable-next-line:forin

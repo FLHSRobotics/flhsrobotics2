@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FlamelinkService} from '../../services/flamelink.service';
+import {MetaService} from '../../services/meta.service';
 declare var jQuery: any;
 @Component({
   selector: 'app-media',
@@ -12,10 +13,12 @@ export class MediaComponent implements OnInit {
   mediaLink = [];
   isMediaLoaded = false;
   constructor(
-    private _fl: FlamelinkService
+    private _fl: FlamelinkService,
+    private metaService: MetaService
   ) { }
 
   async ngOnInit() {
+    this.metaService.updateMeta('Media - Francis Lewis Robotics', 'All Francis Lewis Robotics appearance in news.')
     this.isMediaLoaded = false;
     this.dbPromise = await this._fl.getApp().content.get({ schemaKey: 'media'});
     // tslint:disable-next-line:forin

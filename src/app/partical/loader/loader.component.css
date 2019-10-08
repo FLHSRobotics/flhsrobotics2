@@ -4,5 +4,10 @@
   padding: 25px;
   text-align: center;
 }
+@media only screen and (max-width: 600px) {
+  .loader{
+    width: 75vw;
+  }
+}
 .preloader-wrapper{
 }

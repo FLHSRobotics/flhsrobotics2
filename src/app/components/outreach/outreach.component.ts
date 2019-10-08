@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FlamelinkService} from '../../services/flamelink.service';
+import {MetaService} from '../../services/meta.service';
 
 @Component({
   selector: 'app-outreach',
@@ -9,13 +10,17 @@ import {FlamelinkService} from '../../services/flamelink.service';
 export class OutreachComponent implements OnInit {
 
   constructor(
-    private _fl: FlamelinkService
+    private _fl: FlamelinkService,
+    private metaService: MetaService
   ) { }
 
   outreachArr = [];
   dbPromise: Promise<any>;
   isContentLoaded: boolean;
   async ngOnInit() {
+    this.metaService.updateMeta('Outreach - Francis Lewis Robotics',
+      'Our members focus not only on building and programming robots but also on reaching ' +
+      'out to students not yet involved with robotics. ');
     this.isContentLoaded = false;
     this.dbPromise = await this._fl.getApp().content.get({ schemaKey: 'outreach'});
     console.log(this.dbPromise);
