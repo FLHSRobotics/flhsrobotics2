@@ -1,6 +1,8 @@
 <div class="container">
   <div class="row">
     <h3>Team {{teamId}}</h3>
+    <h6 *ngIf="!teamDescription && isMemberLoaded">{{"This team have no description."}}</h6>
+    <blockquote style="font-size: 15px" class="" *ngIf="teamDescription">{{teamDescription}}</blockquote>
   </div>
   <!--Team Members-->
   <div class="row" *ngIf="teamMember.length > 0 && isMemberLoaded">
@@ -10,8 +12,8 @@
           <img [src]="member.image_url" class="pFrame" [alt]="member.name">
         </div>
         <div class="col">
-          <p class="name">{{member.name}}</p>
-          <p class="role">{{member.dutyDescription}}</p>
+          <span class="name">{{member.name}}</span>
+          <span class="role">{{member.duty}}</span>
         </div>
       </div>
     </div>
