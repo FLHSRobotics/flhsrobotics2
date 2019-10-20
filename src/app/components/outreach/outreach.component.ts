@@ -23,7 +23,6 @@ export class OutreachComponent implements OnInit {
       'out to students not yet involved with robotics. ');
     this.isContentLoaded = false;
     this.dbPromise = await this._fl.getApp().content.get({ schemaKey: 'outreach'});
-    console.log(this.dbPromise);
     // tslint:disable-next-line:forin
     for (const media in this.dbPromise) {
       this.outreachArr.push({
@@ -33,6 +32,12 @@ export class OutreachComponent implements OnInit {
         date: this.dbPromise[media].date
       });
     }
+    this.outreachArr.sort(function(a, b){
+      // Turn your strings into dates, and then subtract them
+      // to get a value that is either negative, positive, or zero.
+      // @ts-ignore
+      return new Date(b.date) - new Date(a.date);
+    });
     this.isContentLoaded = true;
   }
 

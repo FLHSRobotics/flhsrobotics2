@@ -1,6 +1,7 @@
 <div class="container">
   <div class="row">
     <h3>Team {{teamId}}</h3>
+    <blockquote style="font-size: 15px" class="" *ngIf="teamDescription && isMemberLoaded">{{teamDescription}}</blockquote>
   </div>
   <!--Team Members-->
   <div class="row" *ngIf="teamMember.length > 0 && isMemberLoaded">

@@ -14,6 +14,7 @@ export class FrcComponent implements OnInit {
   dbPromise: Promise<any>;
   teamMember = [];
   isMemberLoaded = false;
+  teamDescription = '';
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -39,6 +40,7 @@ export class FrcComponent implements OnInit {
         e['image_url'] = await this._fl.getApp().storage.getURL({ fileId: e.image[0].id });
       }
       this.teamMember = this.dbPromise[Object.keys(this.dbPromise)[0]].teamMemberPhotos;
+      this.teamDescription = this.dbPromise[Object.keys(this.dbPromise)[0]].teamDescription;
       this.isMemberLoaded = true;
     });
   }

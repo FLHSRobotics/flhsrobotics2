@@ -30,7 +30,6 @@ export class FtcComponent implements OnInit {
         field: 'teamName',
         value: this.teamId
       });
-      console.log(this.dbPromise);
       if (this.dbPromise == null) {
         await this.router.navigate(['/404']);
       }

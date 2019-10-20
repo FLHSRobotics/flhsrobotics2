@@ -2,7 +2,7 @@
   <div class="row">
     <h3>Team {{teamId}}</h3>
     <h6 *ngIf="!teamDescription && isMemberLoaded">{{"This team have no description."}}</h6>
-    <blockquote style="font-size: 15px" class="" *ngIf="teamDescription">{{teamDescription}}</blockquote>
+    <blockquote style="font-size: 15px" class="" *ngIf="teamDescription && isMemberLoaded">{{teamDescription}}</blockquote>
   </div>
   <!--Team Members-->
   <div class="row" *ngIf="teamMember.length > 0 && isMemberLoaded">
