@@ -12,6 +12,7 @@ export class FtcComponent implements OnInit {
   teamId: string;
   dbPromise: Promise<any>;
   teamMember = [];
+  teamDescription = '';
   isMemberLoaded = false;
   constructor(
     private route: ActivatedRoute,
@@ -39,6 +40,7 @@ export class FtcComponent implements OnInit {
         e['image_url'] = await this._fl.getApp().storage.getURL({ fileId: e.image[0].id });
       }
       this.teamMember = this.dbPromise[Object.keys(this.dbPromise)[0]].teamMemberPhotos;
+      this.teamDescription = this.dbPromise[Object.keys(this.dbPromise)[0]].teamDescription;
       this.isMemberLoaded = true;
     });
   }
